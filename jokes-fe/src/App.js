@@ -13,8 +13,8 @@ function App() {
        <NavBar />
        <Route exact path="/" component={Login} />
        <Route exact path="/register" component={SignUpForm} />
-       {/* <PrivateRoute exact path="/jokes" component={JokesList} /> */}
-       hello
+       <PrivateRoute exact path="/jokes" component={JokesList} />
+       
     </div>
   );
 }
