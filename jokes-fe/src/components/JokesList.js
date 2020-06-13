@@ -7,7 +7,7 @@ const JokesList = () => {
     
     const [user, setUser] = useState([])
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:3300/api/jokes', localStorage.getItem("token"))
+        axiosWithAuth().get('http://localhost:3300/api/jokes', null, {params: {token: localStorage.getItem("token")}})
         .then(res => {
             setUser(res.data)
             console.log("res", res)
@@ -24,7 +24,7 @@ const JokesList = () => {
     } else {
         return (
             <div>
-            { Object.entries(user).map((data, index) => {
+            { user.map((data, index) => {
                 return <Jokes data={data} key={index}/>
             })}
             </div>
